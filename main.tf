@@ -10,6 +10,6 @@ module "worker" {
     avadom_name         = local.avadom_name
     faldom_list         = local.faldom_list 
     faldom_count        = local.faldom_count 
-    subnet_ocid         = var.subnet_ocid
+    subnet_ocid         = var.worker_subnet_ocid
     image_ocid          = var.worker_image_ocid
 }
