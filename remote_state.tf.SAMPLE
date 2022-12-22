@@ -1,0 +1,18 @@
+
+
+# copy to a file called remote_state.tf !! make sure it is defined in .gitignore
+# name reproject/resource and enter preauth url
+
+terraform {
+  backend "http" {
+    update_method = "PUT"
+    address = "<YOUR-PRE_AUTH-URL-HERE>"
+  }
+}
+
+data "terraform_remote_state" "<MY_PROJECT_NAME>-remote-state" {
+  backend = "http"
+  config = {
+    address = "<YOUR-PRE_AUTH-URL-HERE>"
+  }
+}
