@@ -3,11 +3,13 @@
 
 Simple terraform script for creating GPU VMs in a (private) subnet and a Ngninx load balancer in a (public) subnet.  
 
-# Prep 
+# Prereqs
 
 ## VCN setup: 
 
-Wizard created VCN in Console, accepted all defaults. 
+Create VCN using the wizard created VCN, accept all defaults. 
+
+![](doc/VCN_wizard.png)
 
 Edited a few exceptions afterward. 
 
@@ -19,14 +21,15 @@ In my case this one has private IP: 10.0.0.49
 
 **Exception 2:** 
 
-Editing `Security List for Private Subnet-<your-vcn-name>`.
-Changed rule that allows ssh (port 22) traffic from entire network (10.0.0.0/16) 
-to only accept traffic from Bastion ip (10.0.0.49/32) -- note, this will be different for you! 
+Edited `Security List for Private Subnet-<your-vcn-name>`.
+Removed rule that allows ssh (port 22) traffic from entire network (10.0.0.0/16) 
+Added rule to accept SSH traffic from Bastion ip (10.0.0.49/32) -- note, this will be different for you! 
 
 **Exception 3:**
 
-Editing `Default Security List for <your-vcn-name>`.
+Edited `Default Security List for <your-vcn-name>`.
 Removed rule that allows ssh (port 22) traffic from all (0.0.0.0/0).
+Added rule to accept SSH traffic from Bastion ip (10.0.0.49/32) -- note, this will be different for you! 
 
 ## Variables file
 
