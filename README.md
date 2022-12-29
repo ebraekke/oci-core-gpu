@@ -54,6 +54,8 @@ Use sample file `vars.tfvars.SAMPLE` as a starting point.
 
 # Usage
 
-terraform plan --out=oci-core-gpu.tfplan --var-file=vars_fra.tfvars
+Store config files in sub-dir config/ it is ignored by git.  
+
+terraform plan --out=oci-core-gpu.tfplan --var-file=config/vars_fra.tfvars
 
 terraform apply ....
